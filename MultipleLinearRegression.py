@@ -2,6 +2,21 @@ import pandas as pd
 import math
 
 def multiple_linear_regression(x, y):
+    """
+    Parameters:
+    x (array-like): Independent variables (features) as a 2D array.
+    y (array-like): Dependent variable (target) as a 1D array.
+
+    Returns:
+    result_df (DataFrame): DataFrame containing various calculated values.
+    sst (float): Total Sum of Squares.
+    sse (float): Sum of Squares of Residuals.
+    ssr (float): Sum of Squares of Regression.
+    betas (list): Coefficients (beta values).
+    r_squared (float): Coefficient of Determination (R-squared).
+    mse (float): Mean Squared Error.
+    rmse (float): Root Mean Squared Error.
+    """
     #dataframe from the independent variables x and the dependent variable y
     data = {f'x{i}': x[:, i] for i in range(x.shape[1])}
     data['y'] = y

@@ -5,7 +5,7 @@ def simple_linear_regression(x, y):
     Parameters:
     x (list or array-like): Independent variable data.
     y (list or array-like): Dependent variable data.
-    
+
     Returns:
     result_df (DataFrame): DataFrame containing various calculated values.
     sst (float): Total Sum of Squares.
@@ -16,6 +16,9 @@ def simple_linear_regression(x, y):
     beta2 (float): Coefficient beta2 (associated with 'xy').
     xy_mean (float): Mean of the 'xy' column.
     correlation_xy_y (float): Correlation between 'xy' and 'y'.
+    r_squared (float): R-squared (R^2).
+    mse (float): Mean Squared Error (MSE).
+    rmse (float): Root Mean Squared Error (RMSE).
     """
     
     #dataframe from x and y

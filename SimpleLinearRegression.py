@@ -89,6 +89,12 @@ def simple_linear_regression(x, y):
     correlation_xy_y = df['xy'].corr(df['y'])
     #the coefficient beta2 (associated with 'xy')
     beta2 = (df['(xi - x mean)(yi - y mean)'].sum()) / (df['xy'] ** 2).sum()
+    #r-squared 
+    r_squared = 1 - (sse / sst)
+    #mean squared error (MSE)
+    mse = sse / (len(x) - 2)  # Degrees of freedom = n - 2 for simple linear regression
+    #root mean squared error (RMSE)
+    rmse = np.sqrt(mse)
     
     #SST (Sum of Squared Total)
     #Sum of Square Residual Error
@@ -96,6 +102,6 @@ def simple_linear_regression(x, y):
     #Coefficient beta0 (slope)
     #Coefficient beta1 (intercept)
     #Coefficient beta2 (associated with 'xy')
-    return result_df, sst, sse, ssr, beta0, beta1, beta2, xy_mean,correlation_xy_y
-
-#result_df, sst, sse, ssr, beta0, beta1, beta2, xy_mean, correlation_xy_y = simple_linear_regression(x,y)
+    return return result_df, sst, sse, ssr, beta0, beta1, beta2, xy_mean, correlation_xy_y, r_squared, mse, rmse
+    
+#result_df, sst, sse, ssr, beta0, beta1, beta2, xy_mean, correlation_xy_y, r_squared, mse, rmse = simple_linear_regression(x,y)

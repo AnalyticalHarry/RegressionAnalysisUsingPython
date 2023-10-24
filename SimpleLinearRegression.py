@@ -105,7 +105,7 @@ def simple_linear_regression(x, y):
     #Coefficient beta0 (slope)
     #Coefficient beta1 (intercept)
     #Coefficient beta2 (associated with 'xy')
-    #r sqaured
+    #r squared
     #mean square error
     #root mean square error
     return return result_df, sst, sse, ssr, beta0, beta1, beta2, xy_mean, correlation_xy_y, r_squared, mse, rmse

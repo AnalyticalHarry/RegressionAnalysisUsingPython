@@ -81,7 +81,7 @@ def multiple_linear_regression(x, y):
     #Sum of Square Residual Error
     #Total Sum of Square Regression
     #Coefficient beta
-    #r sqaured
+    #r squared
     #mean square error
     #root mean square error
     return result_df, sst, sse, ssr, betas, r_squared, mse, rmse

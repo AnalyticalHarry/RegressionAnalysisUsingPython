@@ -100,3 +100,7 @@ class LinearRegression:
             {"Parameter": "Root Mean Squared Error", "Value": round(self.root_mean_squared_error()[0], 4)}
         ]
         tab(data)
+
+#Code developed by Hemant Thapa 
+#analyticalharry@gmail.com
+#Date: 22.11.2023

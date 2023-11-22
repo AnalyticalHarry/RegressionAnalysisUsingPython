@@ -111,3 +111,7 @@ def simple_linear_regression(x, y):
     return return result_df, sst, sse, ssr, beta0, beta1, beta2, xy_mean, correlation_xy_y, r_squared, mse, rmse
     
 #result_df, sst, sse, ssr, beta0, beta1, beta2, xy_mean, correlation_xy_y, r_squared, mse, rmse = simple_linear_regression(x,y)
+
+#Code developed by Hemant Thapa 
+#analyticalharry@gmail.com
+#Date: 22.11.2023

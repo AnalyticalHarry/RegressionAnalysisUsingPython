@@ -94,3 +94,7 @@ def multiple_linear_regression(x, y):
 # print("R-squared (R^2):", r_squared)
 # print("Mean Squared Error (MSE):", mse)
 # print("Root Mean Squared Error (RMSE):", rmse)
+
+#Code developed by Hemant Thapa 
+#analyticalharry@gmail.com
+#Date: 22.11.2023

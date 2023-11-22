@@ -89,3 +89,7 @@ class Matrix_Least_Squares_Regression:
             {"Parameter": "Root Mean Squared Error", "Value": round(self.rmse, 4)}
         ])
         tab(result_data)
+
+#Code developed by Hemant Thapa 
+#analyticalharry@gmail.com
+#Date: 22.11.2023

@@ -26,76 +26,85 @@ def r_squared(y_true, y_pred):
     r2 = 1 - (ss_res / ss_tot)
     return r2
 
-#function for kfold validation
+#function for k-fold validation
 def kfold(data, k, shuffle=True, random_state=None):
-    #checking the number of folds is at least 2, otherwise raise an error
+    #number of folds is at least 2
     if k < 2:
         #print number of fold and it must be at least 2
         raise ValueError("Number of folds must be at least 2")
-    #total length of the dataset
+    
+    #total number of length in data
     num_samples = len(data)
-    #an array of indices from 0 to the number of sample in dataset
+    
+    #an array of indices from 0 to total number of data length
     indices = np.arange(num_samples)
-    #shuffle the indices if shuffle is True
+    
+    #if shuffle is true
     if shuffle:
-        #random number generator with the given random state
         rng = np.random.default_rng(random_state)
-        #shuffle the indices array
         rng.shuffle(indices)
-    #an array to store the size of each fold
+    
+    #size of each fold and distribute any remainder
     fold_sizes = np.full(k, num_samples // k, dtype=int)
-    #distributing the remainder among the folds if the data size isn't divisible evenly
     fold_sizes[:num_samples % k] += 1
-    #a variable to tracking the current index
+    
+    #current index, set to zero
     current = 0
 
-    #arrays to store training and testing indices for each fold
+    #training and testing indices for each fold
     train_indices = np.zeros((k, num_samples - num_samples // k), dtype=int)
     test_indices = np.zeros((k, num_samples // k), dtype=int)
 
-    #iterating over each fold
+    #iterate over each fold
     for i, fold_size in enumerate(fold_sizes):
-        #start and stop indices for the current fold
         start, stop = current, current + fold_size
-        #test indices for the current fold
         test_idx = indices[start:stop]
-        #training indices for the current fold
         train_idx = np.concatenate([indices[:start], indices[stop:]])
 
-        #training and testing indices in their respective arrays
         train_indices[i, :len(train_idx)] = train_idx
         test_indices[i, :len(test_idx)] = test_idx
-        #update the current index
         current = stop
-    #training and testing indices arrays
+
     return train_indices, test_indices
 
-#function for cross validation
+#function for cross-validation 
 def cross_validated_score(model, X, y, cv=5, scoring=None):
-    #generate train and test indices
+    #train and test indices using k-fold
     train_indices, test_indices = kfold(X, k=cv)
-    #store each fold
+    #code to store scores
     scores = []
-    #for loop to iterate cv
+
+    #loop thorugh each fold
     for i in range(cv):
-        #trianing and testing indices for the current fold
         train_index, test_index = train_indices[i], test_indices[i]
         X_train_fold, X_test_fold = X[train_index], X[test_index]
         y_train_fold, y_test_fold = y[train_index], y[test_index]
-        #fitting or training model 
+
+        #fit and train model
         model.fit(X_train_fold, y_train_fold)
-        #predicting y value
+        #predictions on the testing data for the current fold
         predictions = model.predict(X_test_fold)
-        #selecting score types
+        #evluating score from various metrics
         score = scoring(y_test_fold, predictions)
         scores.append(score)
-        #printing all scores
-        print(f"Score for fold {i + 1}: {score}")
-    #mean value of all score
+    
+    #total mean of all fold
     mean_score = np.mean(scores)
-    print()
-    #prining mean of all score
-    print(f"Mean score: {mean_score}")
+    print(f'Mean Value for scores: {mean_score}')
+    
+    fig, ax = plt.subplots(figsize=(6, 3))
+    ax.barh(range(1, len(scores) + 1), scores, color='blue', alpha=0.7)
+    ax.set_title('Scores for Each Fold')
+    ax.set_ylabel('Fold')
+    ax.set_yticks(range(1, len(scores) + 1))
+    for i, score in enumerate(scores):
+        ax.text(score, i + 1, f'{score:.2f}', ha='left', va='center')
+    ax.set_xlabel('Score')
+    ax.grid(True, ls='--', alpha=0.3, color='black')
+    plt.tight_layout()
+    plt.show()
+    
+    return scores
 
 
 # kf = kfold(X_train, 10, shuffle=False, random_state=0)

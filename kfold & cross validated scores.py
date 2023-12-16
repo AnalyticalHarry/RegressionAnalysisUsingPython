@@ -71,7 +71,7 @@ def kfold(data, k, shuffle=True, random_state=None):
     return train_indices, test_indices
 
 #function for cross validation
-def cross_validated_score(model, X, y, cv=5, scoring=accuracy_score):
+def cross_validated_score(model, X, y, cv=5, scoring=None):
     #generate train and test indices
     train_indices, test_indices = kfold(X, k=cv)
     #store each fold

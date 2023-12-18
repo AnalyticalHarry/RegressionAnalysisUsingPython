@@ -11,7 +11,7 @@ def removing_outliers(data, column):
     return data[(data[column] >= lower_bound) & (data[column] <= upper_bound)]
 
 for i in df.columns:
-    df = removing_outliers_iqr(df, i)
+    df = removing_outliers(df, i)
 
 filtered = df.shape[0]
 print(f"Before shape was {before_rows} and after removing outliers our shape is {filtered}")

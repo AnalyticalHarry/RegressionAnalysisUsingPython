@@ -51,4 +51,23 @@ Adding polynomial features can help model non-linear relationships by including 
 
 ## Gradient Descent
 
-An optimization algorithm used to minimize the cost function, adjusting parameters iteratively to find the cost function's minimum value.
+Gradient Descent is a first-order iterative optimization algorithm used to find the minimum of a function. By moving in the negative direction of the function's gradient, it aims to find the parameter values that minimize the function.
+
+Batch Gradient Descent: Computes the gradient using the whole dataset. This is computationally expensive for large datasets.
+Stochastic Gradient Descent (SGD): Updates the parameters for each training example. It's faster but more fluctuant.
+Mini-batch Gradient Descent: Strikes a balance between batch and stochastic gradient descent by updating parameters using a subset of the data.
+
+## Newton's Method
+
+Also known as the Newton-Raphson method, it is a root-finding algorithm that uses function derivatives to find the roots of a real-valued function. For optimization, it's used to find where the derivative (or gradient) is zero. It converges faster than gradient descent but is more computationally expensive due to the calculation of second-order derivatives.
+
+## Conjugate Gradient Method
+
+This method is primarily used for solving systems of linear equations, especially those arising from problems with a large number of variables. It's particularly useful for optimizing quadratic functions and is more efficient than gradient descent for certain types of problems.
+
+## Quasi-Newton Methods
+
+These methods are used to find local maxima and minima of functions. They are similar to Newton's method but do not require the computation of second-order derivatives, which makes them more suitable for large-scale problems. Examples include the BFGS and L-BFGS algorithms.
+
+## Cook's Distance
+Cook's distance is a measure used in regression analysis to identify observations that are potentially influential to a regression model's predictions. It quantifies the influence of each data point on the fitted regression coefficients and helps in detecting outliers and influential points that might affect the regression model disproportionately.

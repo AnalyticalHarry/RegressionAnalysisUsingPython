@@ -28,7 +28,7 @@ These methods introduce penalties to the regression model to prevent overfitting
 
 ## Residual Analysis
 
-Examining residuals is crucial for validating regression model assumptions, assessing for patterns that suggest issues like non-linearity or heteroscedasticity.
+Examining residuals is important for validating regression model assumptions, assessing for patterns that suggest issues like non-linearity or heteroscedasticity.
 
 ### Heteroscedasticity vs. Homoscedasticity
 

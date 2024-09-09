@@ -71,3 +71,7 @@ These methods are used to find local maxima and minima of functions. They are si
 
 ## Cook's Distance
 Cook's distance is a measure used in regression analysis to identify observations that are potentially influential to a regression model's predictions. It quantifies the influence of each data point on the fitted regression coefficients and helps in detecting outliers and influential points that might affect the regression model disproportionately.
+
+
+### Author: Hemant Thapa
+### Email: hemantthapa1998@gmail.com
